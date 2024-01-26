@@ -42,7 +42,6 @@ class GunInfoScreen extends StatelessWidget {
                       onPressed: () {
                         // 현재 선택된 총기의 부착물 리스트를 가져옵니다.
                         List<String> currentAttachments = gunData['attachments'] as List<String>;
-
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
