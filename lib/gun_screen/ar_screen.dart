@@ -13,13 +13,16 @@ class ArScreen extends StatelessWidget {
     );
 
     // 총기 리스트를 정의합니다.
-    final List<Map<String, dynamic>> arList = [
+    final List<Map<String, dynamic>> gunList = [
       {
+        'type' : 'ar',
         'name': 'M16A4',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'image': 'asset/img/m16a4.png',
         'magazine': '30',
         'shotmode': '단발/3점사',
-        'damage': '41',
+        'damage': '43',
         'muzzleVelocity': '900m/s',
         'stoppingPower': '8000',
         'ttk': '0.3s',
@@ -68,8 +71,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'M416',
         'image': 'asset/img/m416.png',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '40',
@@ -133,8 +139,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'SCAR-L',
         'image': 'asset/img/scar-l.png',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '42',
@@ -187,7 +196,7 @@ class ArScreen extends StatelessWidget {
           '대용량 퀵드로우 탄창(AR,DMR,S12K)',
           '전술 개머리판',
           '중량형 개머리판(SMG,AR,M249)',
-              '앵글 손잡이',
+          '앵글 손잡이',
           '수직 손잡이',
           '하프 그립',
           '라이트 그립',
@@ -196,8 +205,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'G36C',
         'image': 'asset/img/g36c.png',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '41',
@@ -254,8 +266,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'QBZ95',
         'image': 'asset/img/qbz95.png',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '42',
@@ -312,8 +327,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'K2',
         'image': 'asset/img/k2.png',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'magazine': '30',
         'shotmode': '단발/연사/점사',
         'damage': '41',
@@ -359,6 +377,8 @@ class ArScreen extends StatelessWidget {
       {
         'name': 'AUG A3',
         'image': 'asset/img/aug_a3.png',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '41',
@@ -414,8 +434,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'FAMAS',
         'image': 'asset/img/famas_g2.png',
+        'ammunition' : '5.56mm',
+        'ammunition_image' : 'asset/img/5탄.png',
         'magazine': '30',
         'shotmode': '단발/연사/점사',
         'damage': '39',
@@ -453,8 +476,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'AKM',
         'image': 'asset/img/akm.png',
+        'ammunition' : '7.62mm',
+        'ammunition_image' : 'asset/img/7탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '47',
@@ -500,8 +526,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'Beryl M762',
         'image': 'asset/img/beryl_m762.png',
+        'ammunition' : '7.62mm',
+        'ammunition_image' : 'asset/img/7탄.png',
         'magazine': '30',
         'shotmode': '단발/연사/점사',
         'damage': '44',
@@ -557,8 +586,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'MK47 Mutant',
         'image': 'asset/img/mk47_mutant.png',
+        'ammunition' : '7.62mm',
+        'ammunition_image' : 'asset/img/7탄.png',
         'magazine': '20',
         'shotmode': '단발/2점사',
         'damage': '49',
@@ -622,8 +654,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': '그로자',
         'image': 'asset/img/groza.png',
+        'ammunition' : '7.62mm',
+        'ammunition_image' : 'asset/img/7탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '47',
@@ -663,8 +698,11 @@ class ArScreen extends StatelessWidget {
         ],
       },
       {
+        'type' : 'ar',
         'name': 'ACE32',
         'image': 'asset/img/ace32.png',
+        'ammunition' : '7.62mm',
+        'ammunition_image' : 'asset/img/7탄.png',
         'magazine': '30',
         'shotmode': '단발/연사',
         'damage': '43',
@@ -742,7 +780,7 @@ class ArScreen extends StatelessWidget {
               crossAxisCount: 3, // 3개의 열을 가진 그리드 뷰를 생성합니다.
               childAspectRatio: 0.75, // 셀의 가로 세로 비율을 조정합니다.
             ),
-            itemCount: arList.length, // 총기의 갯수만큼 아이템을 생성합니다.
+            itemCount: gunList.length, // 총기의 갯수만큼 아이템을 생성합니다.
             itemBuilder: (context, index) {
               return Card(
                 // 카드 위젯을 사용하여 각 항목을 감쌉니다.
@@ -753,7 +791,7 @@ class ArScreen extends StatelessWidget {
                     Expanded(
                       child: IconButton(
                         icon: Image.asset(
-                          arList[index]['image']!, // 이미지 경로를 사용합니다.
+                          gunList[index]['image']!, // 이미지 경로를 사용합니다.
                           fit: BoxFit.contain, // 이미지를 비율에 맞게 조정합니다.
                         ),
                         iconSize: 200, // 아이콘의 크기를 지정합니다.
@@ -761,13 +799,13 @@ class ArScreen extends StatelessWidget {
                           Navigator.of(context).push(
                             MaterialPageRoute(
                                 builder: (_) =>
-                                    GunInfoScreen(gunData: arList[index])),
+                                    GunInfoScreen(gunData: gunList[index])),
                           );
                         },
                       ),
                     ),
                     Text(
-                      arList[index]['name']!, // 총기의 이름을 표시합니다.
+                      gunList[index]['name']!, // 총기의 이름을 표시합니다.
                       style: textStyle,
                     ),
                   ],

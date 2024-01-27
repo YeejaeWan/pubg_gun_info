@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pubg_gun_info/gun_screen/ar_screen.dart';
+import 'package:pubg_gun_info/gun_screen/damage_calc.dart';
 import 'package:pubg_gun_info/gun_screen/dmr_screen.dart';
 import 'package:pubg_gun_info/gun_screen/etc_screen.dart';
 import 'package:pubg_gun_info/gun_screen/throwWeapon_screen.dart';
@@ -30,7 +31,7 @@ class HomeScreen extends StatelessWidget {
     Widget gunTypeButton(String text, Widget screen) {
       return Expanded(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5.0), // 버튼 간격 설정
+          padding: const EdgeInsets.symmetric(vertical: 10.0), // 버튼 간격 설정
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               primary: Colors.black,
@@ -66,6 +67,8 @@ class HomeScreen extends StatelessWidget {
               gunTypeButton('Pistol - 권총', PistolScreen()),
               gunTypeButton('투척 무기', ThrowWeaponScreen()),
               gunTypeButton('기타', EtcScreen()),
+              // gunTypeButton('부위별 데미지 계산', DamageCalcScreen()),
+              // 나중에 만듦
             ],
           ),
         ),
