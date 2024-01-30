@@ -25,7 +25,6 @@ class GunInfoScreen extends StatelessWidget {
       '모신나강',
       'Win94',
       '링스 AMR',
-      'S12K',
       'S1897',
       'S686',
       'DBS',
@@ -36,7 +35,9 @@ class GunInfoScreen extends StatelessWidget {
       'MG3',
       'M79',
       'Stun Gun',
-      '판처파우스트'
+      '판처파우스트',
+      'O12',
+      'P90'
     ];
     Map<String, int> extendedMagazines = {
       'MK47 Mutant': 12,
@@ -48,6 +49,7 @@ class GunInfoScreen extends StatelessWidget {
       'K2': 12,
       'AUG A3': 12,
       'AKM': 12,
+      'JS9' : 12,
       'Beryl M762': 12,
       '그로자': 12,
       'ACE32': 12,
@@ -70,7 +72,7 @@ class GunInfoScreen extends StatelessWidget {
       'AWM': 3,
       'S12K': 6,
       'Deagle': 4,
-      '스콜피온': 22,
+      'Skorpion': 22,
       'P18C': 13,
       'P92': 7,
       'P1911': 7,
@@ -81,6 +83,7 @@ class GunInfoScreen extends StatelessWidget {
       'M16A4': 10,
       'M416': 10,
       'SCAR-L': 10,
+      'JS9':10,
       'G36C': 10,
       'QBZ95': 10,
       'K2': 10,
@@ -107,13 +110,21 @@ class GunInfoScreen extends StatelessWidget {
       'AWM': 2,
       'S12K': 5,
       'Deagle': 3,
-      '스콜피온': 20,
+      'Skorpion': 20,
       'P18C': 8,
       'P92': 5,
       'P1911': 5,
       'M249': 75,
     };
-
+    List<String> notAttachemntsGuns = [
+      'P90' ,
+      '플레어 건',
+      '박격포',
+      'M79',
+      'Stun Gun', 
+      '판처파우스트',
+      'MG3'
+    ];
     return Scaffold(
       appBar: AppBar(
         title: Text(gunData['name'], style: headingStyle),
@@ -133,13 +144,41 @@ class GunInfoScreen extends StatelessWidget {
                 ),
                 Flexible(
                   child: TextButton(
-                      style:
-                          TextButton.styleFrom(backgroundColor: Colors.black),
-                      onPressed: () {
-                        List<String> currentAttachments =
-                            gunData['attachments'] as List<String>;
-                        List<String> currentAttachmentsName =
-                            gunData['attachments_name'] as List<String>;
+                    style: TextButton.styleFrom(backgroundColor: Colors.black),
+                    onPressed: () {
+                      // P90인 경우 특별한 다이얼로그를 표시합니다.
+                      if (notAttachemntsGuns.contains(gunData['name'])) {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AlertDialog(
+                              backgroundColor: Color(0xFFF2AA00),
+                              content: Text(
+                                '부착물 없음',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: Text('닫기',
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 15.0,
+                                      )),
+                                  onPressed: () {
+                                    Navigator.of(context).pop(); // 다이얼로그 닫기
+                                  },
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                      } else {
+                        // P90이 아닌 경우 기존 로직을 실행합니다.
+                        List<String> currentAttachments = gunData['attachments'] as List<String>;
+                        List<String> currentAttachmentsName = gunData['attachments_name'] as List<String>;
 
                         showDialog(
                           context: context,
@@ -151,13 +190,11 @@ class GunInfoScreen extends StatelessWidget {
                                   alignment: WrapAlignment.start,
                                   spacing: 8.0,
                                   runSpacing: 8.0,
-                                  children: List<Widget>.generate(
-                                      currentAttachments.length, (index) {
+                                  children: List<Widget>.generate(currentAttachments.length, (index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             currentAttachmentsName[index],
@@ -193,14 +230,14 @@ class GunInfoScreen extends StatelessWidget {
                             );
                           },
                         );
-                      },
-                      // Navigator.of(context).push(
-                      //     MaterialPageRoute(builder: (_) => AttachmentScreen())
-                      // );
-                      child: Text(
-                        '부착물',
-                        style: contentStyle,
-                      )),
+                      }
+                    },
+                    child: Text(
+                      '부착물',
+                      style: contentStyle,
+                    ),
+                  )
+                  ,
                 ),
               ],
             ),
