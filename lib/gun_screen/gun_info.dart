@@ -37,7 +37,21 @@ class GunInfoScreen extends StatelessWidget {
       'Stun Gun',
       '판처파우스트',
       'O12',
-      'P90'
+      'P90',
+      '박격포',
+      '석궁',
+      'Stun Gun',
+      '쇠지렛대',
+      '낫',
+      '프라이팬',
+      '마체테',
+      '수류탄',
+      '교란 수류탄',
+      '섬광탄',
+      '연막탄',
+      '화염병',
+      '블루존 수류탄',
+      '점착 폭탄'
     ];
     Map<String, int> extendedMagazines = {
       'MK47 Mutant': 12,
@@ -267,7 +281,10 @@ class GunInfoScreen extends StatelessWidget {
                       Text('사용 탄약 : ', style: contentStyle),
                       Text('${gunData['ammunition']}', style: contentStyle),
                       Spacer(),
-                      Image.asset(gunData['ammunition_image']),
+                      if (gunData['name'] != '판처파우스트' && gunData['name'] != 'Stun Gun'
+                      && gunData['type'] != 'melee' && gunData['type'] != 'throw'
+                      )
+                        Image.asset(gunData['ammunition_image']),
                     ],
                   ),
                 ),
@@ -343,8 +360,22 @@ class GunInfoScreen extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 5), // 바깥쪽 여백 (상하)
                   child: Row(
                     children: [
-                      Text('발사모드 : ', style: contentStyle),
-                      Text('${gunData['shotmode']}', style: contentStyle),
+
+                      if(gunData['type'] != 'throw') ...[
+                        Text('발사모드 : ', style: contentStyle),
+                        Text('${gunData['shotmode']}', style: contentStyle),
+                      ],
+                      if(gunData['type'] == 'throw') ...[
+                          Text('설명 : ', style: contentStyle),
+                            Flexible(
+                              child: Text(
+                                '${gunData['throwExplan']}',
+                                style: contentStyle,
+                                softWrap: true,
+                              ),
+                            ),
+                        ],
+
                     ],
                   ),
                 ),

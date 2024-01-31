@@ -4,6 +4,7 @@ import 'package:pubg_gun_info/gun_screen/damage_calc.dart';
 import 'package:pubg_gun_info/gun_screen/dmr_screen.dart';
 import 'package:pubg_gun_info/gun_screen/etc_screen.dart';
 import 'package:pubg_gun_info/gun_screen/lmg_screen.dart';
+import 'package:pubg_gun_info/gun_screen/meleeWeapon_screen.dart';
 import 'package:pubg_gun_info/gun_screen/throwWeapon_screen.dart';
 import '../gun_screen/pistol_screen.dart';
 import '../gun_screen/sg_screen.dart';
@@ -67,8 +68,9 @@ class HomeScreen extends StatelessWidget {
               gunTypeButton('SMG - 기관단총', SmgScreen()),
               gunTypeButton('Pistol - 권총', PistolScreen()),
               gunTypeButton('LMG - 경기관총' , LmgScreen()),
-              gunTypeButton('기타', EtcScreen()),
+              gunTypeButton('기타', EtcScreen(),),
               gunTypeButton('투척 무기', ThrowWeaponScreen()),
+              gunTypeButton('근접 무기', meleeWeaponScreen()),
               // gunTypeButton('부위별 데미지 계산', DamageCalcScreen()),
               // 나중에 만듦
             ],
