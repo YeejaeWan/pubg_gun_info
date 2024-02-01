@@ -15,7 +15,7 @@ class GunInfoScreen extends StatelessWidget {
     );
     TextStyle contentStyle = TextStyle(
       color: Colors.white,
-      fontSize: 25.0,
+      fontSize: 20.0,
     );
     int baseMagazine = int.tryParse(gunData['magazine']) ?? 0;
 
@@ -63,7 +63,7 @@ class GunInfoScreen extends StatelessWidget {
       'K2': 12,
       'AUG A3': 12,
       'AKM': 12,
-      'JS9' : 12,
+      'JS9': 12,
       'Beryl M762': 12,
       '그로자': 12,
       'ACE32': 12,
@@ -97,7 +97,7 @@ class GunInfoScreen extends StatelessWidget {
       'M16A4': 10,
       'M416': 10,
       'SCAR-L': 10,
-      'JS9':10,
+      'JS9': 10,
       'G36C': 10,
       'QBZ95': 10,
       'K2': 10,
@@ -131,11 +131,11 @@ class GunInfoScreen extends StatelessWidget {
       'M249': 75,
     };
     List<String> notAttachemntsGuns = [
-      'P90' ,
+      'P90',
       '플레어 건',
       '박격포',
       'M79',
-      'Stun Gun', 
+      'Stun Gun',
       '판처파우스트',
       'MG3'
     ];
@@ -191,8 +191,10 @@ class GunInfoScreen extends StatelessWidget {
                         );
                       } else {
                         // P90이 아닌 경우 기존 로직을 실행합니다.
-                        List<String> currentAttachments = gunData['attachments'] as List<String>;
-                        List<String> currentAttachmentsName = gunData['attachments_name'] as List<String>;
+                        List<String> currentAttachments =
+                            gunData['attachments'] as List<String>;
+                        List<String> currentAttachmentsName =
+                            gunData['attachments_name'] as List<String>;
 
                         showDialog(
                           context: context,
@@ -204,11 +206,13 @@ class GunInfoScreen extends StatelessWidget {
                                   alignment: WrapAlignment.start,
                                   spacing: 8.0,
                                   runSpacing: 8.0,
-                                  children: List<Widget>.generate(currentAttachments.length, (index) {
+                                  children: List<Widget>.generate(
+                                      currentAttachments.length, (index) {
                                     return Padding(
                                       padding: const EdgeInsets.all(8.0),
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Text(
                                             currentAttachmentsName[index],
@@ -250,8 +254,7 @@ class GunInfoScreen extends StatelessWidget {
                       '부착물',
                       style: contentStyle,
                     ),
-                  )
-                  ,
+                  ),
                 ),
               ],
             ),
@@ -279,11 +282,12 @@ class GunInfoScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Text('사용 탄약 : ', style: contentStyle),
-                      Text('${gunData['ammunition']}', style: contentStyle),
+                      Text('${gunData['ammunition']}', style: contentStyle.copyWith(fontSize: 15.0),),
                       Spacer(),
-                      if (gunData['name'] != '판처파우스트' && gunData['name'] != 'Stun Gun'
-                      && gunData['type'] != 'melee' && gunData['type'] != 'throw'
-                      )
+                      if (gunData['name'] != '판처파우스트' &&
+                          gunData['name'] != 'Stun Gun' &&
+                          gunData['type'] != 'melee' &&
+                          gunData['type'] != 'throw')
                         Image.asset(gunData['ammunition_image']),
                     ],
                   ),
@@ -309,11 +313,16 @@ class GunInfoScreen extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 5), // 바깥쪽 여백 (상하)
                   child: Row(
                     children: [
-                      Text('장탄수 : ', style: contentStyle),
-                      Text(
-                        '${gunData['magazine']}',
-                        style: contentStyle,
+                      Row(
+                        children: [
+                          Text('장탄수 : ', style: contentStyle),
+                          Text(
+                              '${gunData['magazine']}',
+                              style: contentStyle,
+                            ),
+                        ],
                       ),
+
                       Spacer(),
                       IconButton(
                         onPressed: () {
@@ -360,22 +369,26 @@ class GunInfoScreen extends StatelessWidget {
                   margin: EdgeInsets.symmetric(vertical: 5), // 바깥쪽 여백 (상하)
                   child: Row(
                     children: [
-
-                      if(gunData['type'] != 'throw') ...[
+                      if (gunData['type'] != 'throw') ...[
                         Text('발사모드 : ', style: contentStyle),
-                        Text('${gunData['shotmode']}', style: contentStyle),
+                        Flexible(
+                          child: Text(
+                            '${gunData['shotmode']}',
+                            style: contentStyle,
+                            softWrap: true,
+                          ),
+                        ),
                       ],
-                      if(gunData['type'] == 'throw') ...[
-                          Text('설명 : ', style: contentStyle),
-                            Flexible(
-                              child: Text(
-                                '${gunData['throwExplan']}',
-                                style: contentStyle,
-                                softWrap: true,
-                              ),
-                            ),
-                        ],
-
+                      if (gunData['type'] == 'throw') ...[
+                        Text('설명 : ', style: contentStyle),
+                        Flexible(
+                          child: Text(
+                            '${gunData['throwExplan']}',
+                            style: contentStyle,
+                            softWrap: true,
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),
@@ -642,7 +655,7 @@ class GunInfoScreen extends StatelessWidget {
                   child: Row(
                     children: [
                       Text('재장전 시간 : ', style: contentStyle),
-                      Text('${gunData['reloadTime']}', style: contentStyle),
+                      Text('${gunData['reloadTime']}', style: contentStyle.copyWith(fontSize: 15.0)),
                     ],
                   ),
                 ),
@@ -685,6 +698,7 @@ class GunInfoScreen extends StatelessWidget {
       ),
     );
   }
+
   // 탄창이 들어가지 않는 총기 처리 함수
   void showNoMagazineDialog(BuildContext context, TextStyle contentStyle) {
     showDialog(
@@ -710,6 +724,7 @@ class GunInfoScreen extends StatelessWidget {
       },
     );
   }
+
   //대용량, 대용량 퀵드로우 탄창 별 탄약 수 증가량 함수
   void showExtendedMagazineDialog(
       BuildContext context,
@@ -728,21 +743,26 @@ class GunInfoScreen extends StatelessWidget {
             children: [
               Text(
                 '기본 탄창: $baseMagazine',
-                style: contentStyle.copyWith(color: Colors.black, fontSize: 19.0),
+                style:
+                    contentStyle.copyWith(color: Colors.black, fontSize: 19.0),
               ),
               Text(
                 '대용량 탄창: ${baseMagazine + extraExtendedMagazine}',
-                style: contentStyle.copyWith(color: Colors.black, fontSize: 19.0),
+                style:
+                    contentStyle.copyWith(color: Colors.black, fontSize: 19.0),
               ),
               Text(
                 '대용량 퀵드로우 탄창: ${baseMagazine + extraQuickdrawMagazine}',
-                style: contentStyle.copyWith(color: Colors.black, fontSize: 19.0),
+                style:
+                    contentStyle.copyWith(color: Colors.black, fontSize: 19.0),
               ),
             ],
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('닫기', style: contentStyle.copyWith(fontSize: 15.0, color: Colors.black)),
+              child: Text('닫기',
+                  style: contentStyle.copyWith(
+                      fontSize: 15.0, color: Colors.black)),
               onPressed: () {
                 Navigator.of(context).pop(); // 다이얼로그 닫기
               },
@@ -751,6 +771,5 @@ class GunInfoScreen extends StatelessWidget {
         );
       },
     );
-
   }
 }
