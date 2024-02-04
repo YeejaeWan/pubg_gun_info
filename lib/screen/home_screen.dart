@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pubg_gun_info/gun_screen/ar_screen.dart';
-import 'package:pubg_gun_info/gun_screen/damage_calc.dart';
 import 'package:pubg_gun_info/gun_screen/dmr_screen.dart';
 import 'package:pubg_gun_info/gun_screen/etc_screen.dart';
 import 'package:pubg_gun_info/gun_screen/lmg_screen.dart';

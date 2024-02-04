@@ -16,6 +16,13 @@ class MainScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'PUBG 정보 어플',
+            style: textStyle.copyWith(color: Colors.white),
+          ),
+          backgroundColor: Colors.black,
+        ),
         backgroundColor: Color(0xFFF2AA00),
         body: Center( // 중앙 정렬을 위해 Center 위젯을 사용합니다.
           child: Column(
