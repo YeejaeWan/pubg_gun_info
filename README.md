@@ -1,6 +1,10 @@
 # pubg_gun_info
 
-A new Flutter project.
+플러터 공부하면서 만드는 배틀그라운드 총기 정보 제공 어플리케이션
+
+총기 정보, 데미지 측정, 커뮤니티 기능 제공 예정
+
+현재 총기정보, 데미지 측정 기능까지 완성함.
 
 ## Getting Started
 
