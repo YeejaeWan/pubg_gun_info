@@ -23,7 +23,7 @@ class PistolScreen extends StatelessWidget {
         'image': 'asset/img/p92.png',
         'magazine': '15',
         'shotmode': '단발',
-        'damage': '22',
+        'damage': '34',
         'muzzleVelocity': '380m/s',
         'stoppingPower': '7000',
         'ttk': '0.6',

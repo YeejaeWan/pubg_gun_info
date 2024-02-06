@@ -86,6 +86,7 @@ class meleeWeaponScreen extends StatelessWidget {
         'image': 'asset/img/프라이팬.png',
         'magazine': '1',
         'throwExplan': '-',
+        'shotmode': '-',
         'damage': '80',
         'muzzleVelocity': '-',
         'stoppingPower': '40000',

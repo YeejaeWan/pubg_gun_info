@@ -544,54 +544,47 @@ class _DamageScreenState extends State<DamageScreen>
     super.initState();
     _tabController = TabController(length: 9, vsync: this);
 
-    // 탭 변경 리스너를 추가합니다.
+    // 탭 변경 시 호출될 리스너를 추가합니다.
     _tabController.addListener(() {
       if (_tabController.indexIsChanging) {
         setState(() {
-          // 현재 선택된 탭의 이름을 가져옵니다.
-          String tabName = getTabName(_tabController.index);
-          // 해당 탭에 대해 마지막으로 선택된 무기를 가져옵니다.
-          WeaponOption? lastSelected = lastSelectedOptions[tabName];
-          // 마지막으로 선택된 무기가 있다면, 현재 선택된 무기를 업데이트합니다.
-          if (lastSelected != null) {
-            selectedWeaponOption = lastSelected;
-            selectedWeapon = lastSelected.name;
-          }
+          // 현재 탭 인덱스에 따라 적절한 총기 옵션 리스트를 선택합니다.
+          List<WeaponOption> currentOptions = getCurrentOptions(_tabController.index);
+          // 현재 탭의 첫 번째 총기를 기본값으로 설정합니다.
+          selectedWeaponOption = currentOptions.first;
+          // 선택된 총기 이름을 업데이트합니다.
+          selectedWeapon = selectedWeaponOption.name;
         });
       }
     });
 
-    selectedWeaponOption = weaponOptions.firstWhere(
-          (option) => option.name == selectedWeapon,
-      orElse: () => weaponOptions.first,
-    );
+    // 초기 선택된 총기 옵션을 설정합니다.
+    selectedWeaponOption = weaponOptions.first;
   }
 
-  String getTabName(int index) {
-    switch (index) {
+// 현재 탭 인덱스에 따라 적절한 총기 옵션 리스트를 반환하는 함수입니다.
+  List<WeaponOption> getCurrentOptions(int tabIndex) {
+    switch (tabIndex) {
       case 0:
-        return 'AR';
+        return weaponOptions;
       case 1:
-        return 'DMR';
+        return dmrOptions;
       case 2:
-        return 'SR';
+        return srOptions;
       case 3:
-        return 'SG';
+        return sgOptions;
       case 4:
-        return 'SMG';
+        return smgOptions;
       case 5:
-        return 'Melee';
+        return meleeOptions;
       case 6:
-        return 'Pistol';
+        return pistolOptions;
       case 7:
-        return 'LMG';
+        return lmgOptions;
       case 8:
-        return 'Crossbow';
-
-
-
+        return crossbowOptions;
       default:
-        return 'Unknown';
+        return [];
     }
   }
 
@@ -617,10 +610,15 @@ class _DamageScreenState extends State<DamageScreen>
 
     double baseCoefficient = baseWeaponDamageCoefficients[bodyPart] ?? 1.0;
     double weaponCoefficient = weaponCoefficients?[bodyPart] ?? 1.0;
+    if (selectedWeapon == '드라구노프' && bodyPart == '머리') {
+      weaponCoefficient = 2.8;
+    }
 
     double finalBaseDamage = baseDamage * baseCoefficient * weaponCoefficient;
 
-    double helmetReduction = 1.0;
+
+
+      double helmetReduction = 1.0;
     if (bodyPart == '머리' || bodyPart == '목') {
       String helmetLevelKey = getHelmetLevel(selectedHelmetIndex);
       helmetReduction = 1.0 - (armorLevelReduction[helmetLevelKey] ?? 0);
@@ -720,7 +718,7 @@ class _DamageScreenState extends State<DamageScreen>
           controller: _tabController,
           isScrollable: true,
           tabs: [
-            Tab(text: 'AR(어썰트 라이플)'),
+            Tab(text: 'AR(돌격 소총)'),
             Tab(text: 'DMR(지정사수소총)'),
             Tab(text: 'SR(저격소총)'),
             Tab(text: 'SG(샷건)'),

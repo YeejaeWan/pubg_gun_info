@@ -45,7 +45,7 @@ class EtcScreen extends StatelessWidget {
         'image': 'asset/img/석궁.png',
         'magazine': '1',
         'shotmode': '단발',
-        'damage': '147',
+        'damage': '105',
         'muzzleVelocity': '160m/s',
         'stoppingPower': '8000',
         'ttk': '-',
