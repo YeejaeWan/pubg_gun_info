@@ -24,7 +24,6 @@ class _DamageScreenState extends State<DamageScreen>
   TextStyle textStyle = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.w700,
-
   );
   TextStyle headTextStyle = TextStyle(
     color: Colors.black,
@@ -241,7 +240,8 @@ class _DamageScreenState extends State<DamageScreen>
     '소드 오프',
     'O12'
   ];
-  final List<String> smgWeapons = [ '토미건',
+  final List<String> smgWeapons = [
+    '토미건',
     'UMP45',
     'Micro UZI',
     'Vector',
@@ -249,23 +249,20 @@ class _DamageScreenState extends State<DamageScreen>
     'MP5K',
     'MP9',
     'P90',
-    'JS9'];
-  final List<String> meleeWeapons = [ '쇠지렛대',
-    '마체테',
-    '프라이팬',
-    '낫'];
-  final List<String> pistolWeapons = [ 'P18C',
+    'JS9'
+  ];
+  final List<String> meleeWeapons = ['쇠지렛대', '마체테', '프라이팬', '낫'];
+  final List<String> pistolWeapons = [
+    'P18C',
     'P92',
     'Skorpion',
     'P1911',
     'R45',
     'Deagle',
-    'R1895'];
-  final List<String> lmgWeapons = [  'M249',
-    'DP-28',
-    'MG3'];
-  final List<String> crossbowWeapons = [    '석궁'
+    'R1895'
   ];
+  final List<String> lmgWeapons = ['M249', 'DP-28', 'MG3'];
+  final List<String> crossbowWeapons = ['석궁'];
   Map<String, double> baseDamageMap = {
     //AR
     'M16A4': 43.0,
@@ -549,7 +546,8 @@ class _DamageScreenState extends State<DamageScreen>
       if (_tabController.indexIsChanging) {
         setState(() {
           // 현재 탭 인덱스에 따라 적절한 총기 옵션 리스트를 선택합니다.
-          List<WeaponOption> currentOptions = getCurrentOptions(_tabController.index);
+          List<WeaponOption> currentOptions =
+              getCurrentOptions(_tabController.index);
           // 현재 탭의 첫 번째 총기를 기본값으로 설정합니다.
           selectedWeaponOption = currentOptions.first;
           // 선택된 총기 이름을 업데이트합니다.
@@ -588,7 +586,6 @@ class _DamageScreenState extends State<DamageScreen>
     }
   }
 
-
   @override
   void dispose() {
     _tabController.removeListener(() {}); // 리스너 제거
@@ -603,10 +600,12 @@ class _DamageScreenState extends State<DamageScreen>
     });
   }
 
-  double calculateDamage(String selectedWeapon, String bodyPart, int selectedHelmetIndex, int selectedArmorIndex) {
+  double calculateDamage(String selectedWeapon, String bodyPart,
+      int selectedHelmetIndex, int selectedArmorIndex) {
     double baseDamage = baseDamageMap[selectedWeapon] ?? 0;
     String weaponType = getWeaponType(selectedWeapon);
-    Map<String, double>? weaponCoefficients = damageCoefficients["$weaponType 부위별 데미지 계수"];
+    Map<String, double>? weaponCoefficients =
+        damageCoefficients["$weaponType 부위별 데미지 계수"];
 
     double baseCoefficient = baseWeaponDamageCoefficients[bodyPart] ?? 1.0;
     double weaponCoefficient = weaponCoefficients?[bodyPart] ?? 1.0;
@@ -616,9 +615,7 @@ class _DamageScreenState extends State<DamageScreen>
 
     double finalBaseDamage = baseDamage * baseCoefficient * weaponCoefficient;
 
-
-
-      double helmetReduction = 1.0;
+    double helmetReduction = 1.0;
     if (bodyPart == '머리' || bodyPart == '목') {
       String helmetLevelKey = getHelmetLevel(selectedHelmetIndex);
       helmetReduction = 1.0 - (armorLevelReduction[helmetLevelKey] ?? 0);
@@ -633,7 +630,6 @@ class _DamageScreenState extends State<DamageScreen>
     double finalDamage = finalBaseDamage * helmetReduction * armorReduction;
     return finalDamage;
   }
-
 
 // 총기 이름으로부터 총기 유형을 결정하는 함수입니다.
   String getWeaponType(String weaponName) {
@@ -663,7 +659,6 @@ class _DamageScreenState extends State<DamageScreen>
   Widget _buildArmorHelmetSelection() {
     return Container(
       color: Color(0xFFF2AA00),
-
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -710,8 +705,19 @@ class _DamageScreenState extends State<DamageScreen>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-      // 배경색 설정 변경
-        title: Text('총기별 데미지 측정',style: textStyle,),
+        // 배경색 설정 변경
+        title: Row(
+          children: [
+            Image.asset('asset/img/총기별데미지.png',
+              width: 40,
+              height: 40,
+              fit: BoxFit.cover,),
+            Text(
+              '총기별 데미지 측정',
+              style: textStyle,
+            ),
+          ],
+        ),
         bottom: TabBar(
           indicatorColor: Colors.white,
           labelColor: Colors.white,
@@ -732,7 +738,6 @@ class _DamageScreenState extends State<DamageScreen>
         ),
       ),
       body: TabBarView(
-
         controller: _tabController,
         children: [
           buildWeaponSelection('AR'),
@@ -803,10 +808,10 @@ class _DamageScreenState extends State<DamageScreen>
                 selectedWeaponOptions[weaponType] = newValue!;
                 selectedWeapon = newValue.name;
                 lastSelectedOptions[weaponType] = newValue;
-
               });
             },
-            items: options.map<DropdownMenuItem<WeaponOption>>((WeaponOption option) {
+            items: options
+                .map<DropdownMenuItem<WeaponOption>>((WeaponOption option) {
               return DropdownMenuItem<WeaponOption>(
                 value: option,
                 child: Row(
@@ -819,7 +824,6 @@ class _DamageScreenState extends State<DamageScreen>
               );
             }).toList(),
           ),
-
           Expanded(
             child: SingleChildScrollView(
               child: Stack(

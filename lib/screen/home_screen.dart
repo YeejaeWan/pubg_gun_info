@@ -72,7 +72,6 @@ class _HomeScreenState extends State<HomeScreen> {
       // Brightness.light를 사용하면 아이콘을 밝은 색으로 설정할 수 있습니다.
     ));
     return Scaffold(
-
       body: _children[_currentIndex], // 현재 선택된 탭의 위젯을 보여줌
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white, // 선택된 탭의 색상

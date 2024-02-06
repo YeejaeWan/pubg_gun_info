@@ -48,11 +48,22 @@ class gunInfoScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Color(0xFFF2AA00),
         appBar: AppBar(
-          title: Text(
-            'PUBG 총기 정보 알려드림',
-            style: textStyle.copyWith(color: Colors.white),
-          ),
           backgroundColor: Colors.black,
+          title: Row(
+            children: [
+              Image.asset('asset/img/3레벨헬멧.png',
+                width: 40,
+                height: 40,
+                fit: BoxFit.cover,),
+            SizedBox(
+              width: 10.0,
+            ),
+            Text(
+                'PUBG 총기 정보 알려드림',
+                style: textStyle.copyWith(color: Colors.white),
+              ),
+            ],
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
