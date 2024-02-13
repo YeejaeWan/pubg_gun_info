@@ -17,6 +17,7 @@ class LmgScreen extends StatelessWidget {
     final List<Map<String, dynamic>> gunList = [
       {
         'type': 'lmg',
+        'description': '',
         'name': 'M249',
         'ammunition': '5.56mm',
         'ammunition_image': 'asset/img/5탄.png',
@@ -63,6 +64,7 @@ class LmgScreen extends StatelessWidget {
       },
       {
         'type': 'lmg',
+        'description': '',
         'name': 'DP-28',
         'ammunition': '7.62mm',
         'ammunition_image': 'asset/img/7탄.png',
@@ -84,7 +86,6 @@ class LmgScreen extends StatelessWidget {
           'asset/img/4배율.png',
           'asset/img/6배율.png',
           'asset/img/열화상4배율.png',
-
         ],
         'attachments_name': [
           '레드 도트 사이트',
@@ -98,6 +99,7 @@ class LmgScreen extends StatelessWidget {
       },
       {
         'type': 'lmg',
+        'description': '',
         'name': 'MG3',
         'ammunition': '7.62mm',
         'ammunition_image': 'asset/img/7탄.png',
@@ -119,7 +121,6 @@ class LmgScreen extends StatelessWidget {
           'asset/img/4배율.png',
           'asset/img/6배율.png',
           'asset/img/열화상4배율.png',
-
         ],
         'attachments_name': [
           '레드 도트 사이트',

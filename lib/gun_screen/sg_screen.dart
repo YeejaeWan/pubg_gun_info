@@ -17,6 +17,7 @@ class SgScreen extends StatelessWidget {
     final List<Map<String, dynamic>> gunList = [
       {
         'type': 'sg',
+        'description': '펌프액션 산탄총으로 불리는 S1897은 근거리에서 위협적인 피해량을 제공하지만, 펌프 작동으로 인한 지연 시간이 있어 승부를 가를 때 중요한 요소로 ㅁ. 이외에도 재장전 중 발생하는 뚜껑 소리로 인해 적의 위치가 노출되는 단점이 있으며, 펌프를 당기는 속도가 개선되었지만 여전히 S12K나 DBS에 비해 부족한 평가를 받는다. 엄폐물을 활용하여 한 명씩 격파할 수 있는 높은 효율을 가진다. 초기 S686에 밀리는 모습을 보였지만, 현재는 S686보다 많이 사용된다. ',
         'name': 'S1897',
         'ammunition': '12게이지',
         'ammunition_image': 'asset/img/12게이지.png',
@@ -43,6 +44,7 @@ class SgScreen extends StatelessWidget {
       },
       {
         'type': 'sg',
+        'description': 'S686은 두 발을 빠르게 연속 발사하여 적을 제압하는 데 강점을 지녔으나, 장탄수가 단 2발로 제한되어 샷미스가 발생하면 불리한 상황이 될 수 있다. 빠른 재장전 속도와 확실한 제압 능력은 주요 장점으로, 1:1 전투에서 유리하나 다수의 적과의 교전에서는 부족함을 보인다. 따라서 S1897과 비교할 때 1:1 대결에서 강세를 보이지만 다수 대 다수 교전에서는 불리할 수 있다.',
         'name': 'S686',
         'ammunition': '12게이지',
         'ammunition_image': 'asset/img/12게이지.png',
@@ -65,9 +67,9 @@ class SgScreen extends StatelessWidget {
           '탄띠(SG,SR,Win94)',
         ],
       },
-
       {
         'type': 'sg',
+        'description': 'S12K는 유일한 반자동 탄창식 산탄총으로, 장탄수가 많고 빠른 연사가 가능하며 재장전이 비교적 빠르다. 하지만 피해량이 다른 산탄총에 비해 낮고, 반동이 강한 편이며 초탄이 빗나가면 적이 생존할 가능성이 크다. 또한 초크를 달 수 없어 사정거리가 짧고, 근접전에서만 효과적인 무기로 평가된다. 하지만 덕빌을 착용할 수 있어 어느정도의 거리까지 커버가 된다.',
         'name': 'S12K',
         'ammunition': '12게이지',
         'ammunition_image': 'asset/img/12게이지.png',
@@ -118,6 +120,7 @@ class SgScreen extends StatelessWidget {
       },
       {
         'type': 'sg',
+        'description': 'DBS는 특이한 펌프액션 + 더블배럴 구조로, S686과 S1897을 결합한 듯한 산탄총이다. 2발을 거의 딜레이 없이 발사할 수 있으며 14발의 장탄수를 자랑하며 근거리에서 압도적인 화력을 제공한다. 집탄률이 뛰어나지만 장전에 시간이 소요되며 드랍율이 낮아 얻기 어려운 단점을 가지고 있다. 초기 DBS는 보급 무기였으나, 현재 필드 드랍 무기로 변경되었다. 샷건 중에서 압도적인 1티어라고 할 수 있다.',
         'name': 'DBS',
         'ammunition': '12게이지',
         'ammunition_image': 'asset/img/12게이지.png',
@@ -140,7 +143,6 @@ class SgScreen extends StatelessWidget {
           'asset/img/6배율.png',
           'asset/img/캔티드.png',
           'asset/img/열화상4배율.png',
-
         ],
         'attachments_name': [
           '레드 도트 사이트',
@@ -151,11 +153,11 @@ class SgScreen extends StatelessWidget {
           '6배율 스코프',
           '캔티드 사이트',
           '4배율 열화상 스코프',
-
         ],
       },
       {
         'type': 'sg',
+        'description': '단축형 산탄총은 S686과 비교해 길이가 짧고 개머리판이 없으며, 수평쌍대(Side by side) 형태를 가진다. 한 발에 21데미지의 펠릿을 9발 발사하며, 머리에 두 발을 맞히면 566의 대미지를 줘서 적을 로비에 보낼 수 있는 잠재력을 갖고 있다. 하지만 총열이 짧아 사거리가 다른 샷건들보다 짧고, 실내 근접전에서만 효과를 발휘하며, 외부에서의 발사음이 크게 달라진다. 쵸크를 부착 가능하여 어느정도의 거리가 커버 가능하다. 하지만 한정적인 맵에서 스폰한다는 단점과 연막 권총의 등장으로 사용이 낮아지고 있다.',
         'name': '소드 오프',
         'ammunition': '12게이지',
         'ammunition_image': 'asset/img/12게이지.png',
@@ -177,11 +179,12 @@ class SgScreen extends StatelessWidget {
         ],
       },
       {
-        'type' : 'sg',
+        'type': 'sg',
+        'description': '18.2 패치를 통해 출시된 O12는 필드드랍 자동 산탄총으로, 새로운 12게이지 슬러그 탄을 사용한다. 총열이 짧아 사거리가 짧지만, 피해량은 거리에 따라 크게 감소하지 않으며 연사 기능을 갖추고 있다. 그러나 반동이 매우 심하고 전용 탄약 수급이 어려우며, 반동 제어에 어려움이 있어 활용이 제한된다. 초근접 전투에서는 높은 대미지와 연사 기능을 활용할 수 있으나 장거리에서는 효과가 떨어진다. DPS는 720으로 연사 총기 중 2등이다.',
         'name': 'O12',
         'image': 'asset/img/o12.png',
-        'ammunition' : '슬러그탄',
-        'ammunition_image' : 'asset/img/12게이지슬러그.png',
+        'ammunition': '슬러그탄',
+        'ammunition_image': 'asset/img/12게이지슬러그.png',
         'magazine': '30',
         'shotmode': '단발/3점사/연사',
         'damage': '100',
@@ -236,7 +239,6 @@ class SgScreen extends StatelessWidget {
           '레이저 사이트'
         ],
       },
-
     ];
 
     return SafeArea(

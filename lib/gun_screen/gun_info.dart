@@ -136,7 +136,7 @@ class GunInfoScreen extends StatelessWidget {
       'M79',
       'Stun Gun',
       '판처파우스트',
-      'MG3'
+
     ];
     return SafeArea(
       child: Scaffold(
@@ -154,108 +154,197 @@ class GunInfoScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 2,
-                    child: Image.asset(gunData['image'], height: 200),
-                  ),
-                  Flexible(
-                    child: TextButton(
-                      style: TextButton.styleFrom(backgroundColor: Colors.black),
-                      onPressed: () {
-                        // P90인 경우 특별한 다이얼로그를 표시합니다.
-                        if (notAttachemntsGuns.contains(gunData['name'])) {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                backgroundColor: Color(0xFFF2AA00),
-                                content: Text(
-                                  '부착물 없음',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 16.0,
-                                  ),
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    child: Text('닫기',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 15.0,
-                                        )),
-                                    onPressed: () {
-                                      Navigator.of(context).pop(); // 다이얼로그 닫기
-                                    },
-                                  ),
-                                ],
-                              );
-                            },
-                          );
-                        } else {
-                          // P90이 아닌 경우 기존 로직을 실행합니다.
-                          List<String> currentAttachments =
-                              gunData['attachments'] as List<String>;
-                          List<String> currentAttachmentsName =
-                              gunData['attachments_name'] as List<String>;
-      
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return AlertDialog(
-                                backgroundColor: Color(0xFFF2AA00),
-                                content: SingleChildScrollView(
-                                  child: Wrap(
-                                    alignment: WrapAlignment.start,
-                                    spacing: 8.0,
-                                    runSpacing: 8.0,
-                                    children: List<Widget>.generate(
-                                        currentAttachments.length, (index) {
-                                      return Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              currentAttachmentsName[index],
+                    child: Stack(
+                      alignment: Alignment.center, // 스택 내용을 왼쪽 아래에 정렬합니다.
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          decoration: BoxDecoration(
+                            color: Colors.black, // 배경색을 검정색으로 설정합니다.
+                            borderRadius:
+                                BorderRadius.circular(10), // 모서리를 둥글게 합니다.
+                            border: Border.all(
+                                color: Colors.grey, width: 2), // 회색 테두리를 추가합니다.
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'asset/img/총기배경.jpg'), // 배경 텍스처 이미지
+                              fit: BoxFit.cover, // 배경 이미지가 컨테이너를 채우도록 합니다.
+                            ),
+                          ),
+                          child: Image.asset(gunData['image'], height: 200),
+                        ),
+                        Positioned(
+                          right: 0,
+                          bottom: 8,
+                          child: IconButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    backgroundColor: Color(0xFFF2AA00),
+                                    title: Text('무기 설명',
+                                        style: TextStyle(color: Colors.black)),
+                                    content: SingleChildScrollView(
+                                      child: ListBody(
+                                        children: <Widget>[
+                                          Text(gunData['description'],
                                               style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 16.0,
-                                              ),
-                                            ),
-                                            Image.asset(
-                                              currentAttachments[index],
-                                              width: 100,
-                                              height: 100,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    }),
-                                  ),
-                                ),
-                                actions: <Widget>[
-                                  TextButton(
-                                    child: Text('닫기',
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 15.0,
-                                        )),
-                                    onPressed: () {
-                                      Navigator.of(context).pop(); // 다이얼로그 닫기
-                                    },
-                                  ),
-                                ],
+                                                  color: Colors.black)),
+                                          // 여기에 추가적인 설명이나 이미지 등을 넣을 수 있습니다.
+                                        ],
+                                      ),
+                                    ),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: Text('닫기',
+                                            style:
+                                                TextStyle(color: Colors.black)),
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .pop(); // 다이얼로그 닫기
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
                               );
                             },
-                          );
-                        }
-                      },
-                      child: Text(
-                        '부착물',
-                        style: contentStyle,
-                      ),
+                            icon: Icon(Icons.add, color: Colors.white),
+                          ),
+                        ),
+                        Positioned(
+                          // + 버튼을 이미지의 왼쪽 아래에 배치합니다.
+                          left: 8,
+                          bottom: 8,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                // 선택사항: 버튼에 그림자를 추가
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 1,
+                                  blurRadius: 10,
+                                ),
+                              ], // 버튼의 모서리를 둥글게
+                            ),
+                            child: TextButton(
+                              style: TextButton.styleFrom(
+                                backgroundColor: Colors.black
+                                    .withOpacity(0.5), // 버튼 배경을 반투명 검정색으로 만듭니다.
+                              ),
+                              child: Text(
+                                '부착물',
+                                style: TextStyle(
+                                    color: Colors.white), // 글자색을 흰색으로 설정합니다.
+                              ),
+                              onPressed: () {
+                                // P90인 경우 특별한 다이얼로그를 표시합니다.
+                                if (notAttachemntsGuns
+                                    .contains(gunData['name']) || gunData['type'] == 'throw'
+                                    || gunData['type'] == 'melee') {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        backgroundColor: Color(0xFFF2AA00),
+                                        content: Text(
+                                          '부착물 없음',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 16.0,
+                                          ),
+                                        ),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            child: Text('닫기',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15.0,
+                                                )),
+                                            onPressed: () {
+                                              Navigator.of(context)
+                                                  .pop(); // 다이얼로그 닫기
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                } else {
+                                  // P90이 아닌 경우 기존 로직을 실행합니다.
+                                  List<String> currentAttachments =
+                                      gunData['attachments'] as List<String>;
+                                  List<String> currentAttachmentsName =
+                                      gunData['attachments_name']
+                                          as List<String>;
+
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        backgroundColor: Color(0xFFF2AA00),
+                                        content: SingleChildScrollView(
+                                          child: Wrap(
+                                            alignment: WrapAlignment.start,
+                                            spacing: 8.0,
+                                            runSpacing: 8.0,
+                                            children: List<Widget>.generate(
+                                                currentAttachments.length,
+                                                (index) {
+                                              return Padding(
+                                                padding:
+                                                    const EdgeInsets.all(8.0),
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      currentAttachmentsName[
+                                                          index],
+                                                      style: TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                    ),
+                                                    Image.asset(
+                                                      currentAttachments[index],
+                                                      width: 100,
+                                                      height: 100,
+                                                      fit: BoxFit.cover,
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            }),
+                                          ),
+                                        ),
+                                        actions: <Widget>[
+                                          TextButton(
+                                            child: Text('닫기',
+                                                style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15.0,
+                                                )),
+                                            onPressed: () {
+                                              Navigator.of(context)
+                                                  .pop(); // 다이얼로그 닫기
+                                            },
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                }
+                              },
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
+                  SizedBox(width: 10.0), // 이미지와 버튼 사이의 간격을 설정합니다.
                 ],
               ),
               Column(
@@ -282,7 +371,10 @@ class GunInfoScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Text('사용 탄약 : ', style: contentStyle),
-                        Text('${gunData['ammunition']}', style: contentStyle.copyWith(fontSize: 15.0),),
+                        Text(
+                          '${gunData['ammunition']}',
+                          style: contentStyle.copyWith(fontSize: 15.0),
+                        ),
                         Spacer(),
                         if (gunData['name'] != '판처파우스트' &&
                             gunData['name'] != 'Stun Gun' &&
@@ -317,12 +409,11 @@ class GunInfoScreen extends StatelessWidget {
                           children: [
                             Text('장탄수 : ', style: contentStyle),
                             Text(
-                                '${gunData['magazine']}',
-                                style: contentStyle,
-                              ),
+                              '${gunData['magazine']}',
+                              style: contentStyle,
+                            ),
                           ],
                         ),
-      
                         Spacer(),
                         IconButton(
                           onPressed: () {
@@ -440,7 +531,8 @@ class GunInfoScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Text('탄속 : ', style: contentStyle),
-                        Text('${gunData['muzzleVelocity']}', style: contentStyle),
+                        Text('${gunData['muzzleVelocity']}',
+                            style: contentStyle),
                       ],
                     ),
                   ),
@@ -466,7 +558,8 @@ class GunInfoScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Text('저지력 : ', style: contentStyle),
-                        Text('${gunData['stoppingPower']}', style: contentStyle),
+                        Text('${gunData['stoppingPower']}',
+                            style: contentStyle),
                         Spacer(),
                         IconButton(
                           onPressed: () {
@@ -655,7 +748,8 @@ class GunInfoScreen extends StatelessWidget {
                     child: Row(
                       children: [
                         Text('재장전 시간 : ', style: contentStyle),
-                        Text('${gunData['reloadTime']}', style: contentStyle.copyWith(fontSize: 15.0)),
+                        Text('${gunData['reloadTime']}',
+                            style: contentStyle.copyWith(fontSize: 15.0)),
                       ],
                     ),
                   ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import 'gun_info.dart';
 
 class meleeWeaponScreen extends StatelessWidget {
@@ -18,6 +17,7 @@ class meleeWeaponScreen extends StatelessWidget {
     final List<Map<String, dynamic>> gunList = [
       {
         'type': 'melee',
+        'description': '',
         'name': '쇠지렛대',
         'ammunition': '-',
         'image': 'asset/img/쇠지렛대.png',
@@ -30,15 +30,12 @@ class meleeWeaponScreen extends StatelessWidget {
         'dps': '-',
         'reloadTime': '-',
         'spawnArea': '모든맵',
-        'attachments': [
-
-        ],
-        'attachments_name': [
-
-        ],
+        'attachments': [],
+        'attachments_name': [],
       },
       {
         'type': 'melee',
+        'description': '',
         'name': '마체테',
         'ammunition': '-',
         'image': 'asset/img/마체테.png',
@@ -51,15 +48,12 @@ class meleeWeaponScreen extends StatelessWidget {
         'dps': '-',
         'reloadTime': '-',
         'spawnArea': '모든맵',
-        'attachments': [
-
-        ],
-        'attachments_name': [
-
-        ],
+        'attachments': [],
+        'attachments_name': [],
       },
       {
         'type': 'melee',
+        'description': '',
         'name': '낫',
         'ammunition': '-',
         'image': 'asset/img/낫.png',
@@ -72,15 +66,12 @@ class meleeWeaponScreen extends StatelessWidget {
         'dps': '-',
         'reloadTime': '-',
         'spawnArea': '모든맵',
-        'attachments': [
-
-        ],
-        'attachments_name': [
-
-        ],
+        'attachments': [],
+        'attachments_name': [],
       },
       {
         'type': 'melee',
+        'description': '',
         'name': '프라이팬',
         'ammunition': '-',
         'image': 'asset/img/프라이팬.png',
@@ -94,14 +85,9 @@ class meleeWeaponScreen extends StatelessWidget {
         'dps': '-',
         'reloadTime': '-',
         'spawnArea': '모든맵',
-        'attachments': [
-
-        ],
-        'attachments_name': [
-
-        ],
+        'attachments': [],
+        'attachments_name': [],
       },
-     
     ];
 
     return SafeArea(

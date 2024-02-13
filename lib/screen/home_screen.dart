@@ -9,8 +9,8 @@ import 'package:pubg_gun_info/screen/damage_screen.dart';
 class GunInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child:
-      gunInfoScreen(),
+    return Center(
+      child: gunInfoScreen(),
     );
   }
 }
@@ -18,17 +18,17 @@ class GunInfoScreen extends StatelessWidget {
 class DamageCalculatorScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-      return Center(
-        child : DamageScreen(),
-      );
+    return Center(
+      child: DamageScreen(),
+    );
   }
 }
 
 class Community extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(child:
-      CommunityScreen(),
+    return Center(
+      child: CommunityScreen(),
     );
   }
 }
@@ -37,7 +37,8 @@ class UserProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 여기에 내정보 화면 구성
-    return Center(child: MyPageScreen(),
+    return Center(
+      child: MyPageScreen(),
     );
   }
 }
@@ -89,14 +90,14 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: new Icon(Icons.calculate),
             label: '데미지 측정',
           ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.chat),
-              label: '커뮤니티'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: '내 정보'
-          ),
+//          BottomNavigationBarItem(
+//              icon: Icon(Icons.chat),
+//              label: '커뮤니티'
+          //         ),
+          //         BottomNavigationBarItem(
+          //           icon: Icon(Icons.person),
+          //          label: '내 정보'
+          //    ),
         ],
       ),
     );

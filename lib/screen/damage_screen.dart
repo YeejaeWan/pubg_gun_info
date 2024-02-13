@@ -712,6 +712,9 @@ class _DamageScreenState extends State<DamageScreen>
               width: 40,
               height: 40,
               fit: BoxFit.cover,),
+            SizedBox(
+              width: 10.0,
+            ),
             Text(
               '총기별 데미지 측정',
               style: textStyle,

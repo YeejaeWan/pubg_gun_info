@@ -17,6 +17,7 @@ class SmgScreen extends StatelessWidget {
     final List<Map<String, dynamic>> gunList = [
       {
         'type': 'smg',
+        'description': '우지는 연사력이 뛰어나고 총기 길이가 짧아서 근접 전투에서 우수하며, 초당 피해량이 높지만 단발 피해량은 낮은 SMG이다. 벡터와 비교하면 우지는 기동성과 반동 안정성에서 우위를 가지며, 개머리판을 장착하면 거의 무반동 사격이 가능하다. 하지만 탄약을 매우 빠르게 소모하고 중거리에서는 다른 SMG에 비해 교전능력이 떨어진다. 결론적으로 우지는 근거리에서의 압도적인 연사력과 기동성을 바탕으로 유용하며, 벡터와 비교해도 강점을 보인다.',
         'name': 'Micro UZI',
         'ammunition': '9mm',
         'ammunition_image': 'asset/img/9탄.png',
@@ -55,6 +56,7 @@ class SmgScreen extends StatelessWidget {
       },
       {
         'type': 'smg',
+        'description': '벡터는 높은 초당 피해량과 낮은 반동으로 인한 근거리 전투에서의 우수한 성능을 자랑한다. 하지만 탄창 파츠 부족으로 인한 사용 난이도와 높은 부착물 의존도 등의 단점을 가지고 있다. 전투 중 대량의 탄약 소모와 초보자에게 어려운 조작이 있을 수 있으며, 손잡이 부착이 필수적이다. 손잡이는 수직 손잡이, 하프 그립, 라이트 그립만 부착할 수 있다. 초기 벡터는 .45탄이였지만, 현재는 9mm탄약의 총기로 변경되었다.',
         'name': 'Vector',
         'ammunition': '9mm',
         'ammunition_image': 'asset/img/9탄.png',
@@ -103,6 +105,7 @@ class SmgScreen extends StatelessWidget {
       },
       {
         'type': 'smg',
+        'description': 'PDW인 UMP45은 다목적 기관권총으로, 다른 SMG에 비해 유효사거리가 길고 전투 지속력이 뛰어나며, AR에 비해 반동과 탄퍼짐이 적다. 이동사격 중에도 명중률이 높고, 다양한 부착물을 통해 반동 제어와 활용성을 높일 수 있다. 그러나 초당 피해량은 상대적으로 낮고, 중장거리 사용시 피해량 감소 거리에 유의해야 한다. UMP45는 초기 9mm 탄약을 사용했지만, 현재 .45 탄약을 사용하게 바뀌었다.',
         'name': 'UMP45',
         'ammunition': '.45ACP',
         'ammunition_image': 'asset/img/45탄.png',
@@ -163,6 +166,7 @@ class SmgScreen extends StatelessWidget {
       },
       {
         'type': 'smg',
+        'description': '토미건은 대용량 탄창을 장착하면 55발의 탄약을 가지고 있다. 그러나 반동이 강하고 부착물의 확장성이 부족하며, 중거리에서의 대응이 어려울 수 있다. 또한 탄속이 매우 느리고 총기의 무게가 높아 상황에 따라 불리할 수 있다. 부착물은 소음기와 탄창류 밖에 부착이 되지않는다. 초기 토미건은 보급 무기였으나, 현재 필드 드랍 무기로 변경되었다.',
         'name': '토미건',
         'ammunition': '.45ACP',
         'ammunition_image': 'asset/img/45탄.png',
@@ -197,6 +201,7 @@ class SmgScreen extends StatelessWidget {
       },
       {
         'type': 'smg',
+        'description': '비존은 헬리컬 탄창을 사용하여 탄창, 손잡이, 레이저 사이트 부착이 불가능하며, SMG용 부착물과 조준경, 캔티드 사이트만 장착할 수 있다. 연사력은 700RPM으로 다른 9mm 기관단총들보다는 느리지만 대용량 탄창으로 높은 전투지속력을 제공한다. 하지만 초당 피해량이 낮고 TTK가 길어 근접전에서는 적합하지 않으며, 재장전이 다소 느리다는 단점이 있다.',
         'name': 'PP0-19 Bizon',
         'ammunition': '9mm',
         'ammunition_image': 'asset/img/9탄.png',
@@ -239,6 +244,7 @@ class SmgScreen extends StatelessWidget {
       },
       {
         'type': 'smg',
+        'description': 'MP5K는 9mm 탄약을 사용하며, 높은 대미지와 합리적인 탄 소모량을 가진 근거리 올라운더로 평가된다. 파츠 의존도가 높고 장전 속도가 느린 것이 단점이지만, 풀파츠를 부착하면 반동이 크게 줄어들어 근중거리에서 강력한 위력을 발휘한다. 한정적인 맵에서만 드랍된다는 단점이 있다.',
         'name': 'MP5K',
         'ammunition': '9mm',
         'ammunition_image': 'asset/img/9탄.png',
@@ -303,6 +309,7 @@ class SmgScreen extends StatelessWidget {
       },
       {
         'type': 'smg',
+        'description': '스위스 제작 기관단총으로, 레이저 사이트와 소음기가 기본 장착된다. P90과 유사한 피해량과 연사력을 가지고 있으며, 극단적으로 적은 반동으로 유명하다. 하지만 무배율 조준경만 장착 가능하며, 중거리에서는 제약이 따른다. 데스턴에서만 사용할 수 있는 총기이다.',
         'name': 'MP9',
         'ammunition': '9mm',
         'ammunition_image': 'asset/img/9탄.png',
@@ -335,6 +342,7 @@ class SmgScreen extends StatelessWidget {
       },
       {
         'type': 'smg',
+        'description': 'P90은 SMG로, 보급 전용 총기로 등장한다. 전용 탄약인 5.7mm를 사용하며, 1000 RPM의 높은 연사력과 715m/s의 빠른 탄속을 가지고 있다. 기본적으로 홀로그램 조준경, 소음기, 레이저 사이트가 부착되어 나오며, 반동이 거의 없어 근접전에서 강력하다. 하지만 전용 탄약을 사용하기 때문에 탄약이 바닥나면 보급에서 다시 보충해야 하며, 파츠 장착이 불가능하다. 탄약 보충에 단점이 있지만, 근중거리 교전에서 AR보다 낮은 반동과 높은 DPS로 그 단점을 커버할 수 있다.',
         'name': 'P90',
         'ammunition': '5.7mm',
         'ammunition_image': 'asset/img/5.7탄.png',
@@ -348,13 +356,12 @@ class SmgScreen extends StatelessWidget {
         'dps': '612.5',
         'reloadTime': '-',
         'spawnArea': '보급 무기',
-        'attachments': [
-        ],
-        'attachments_name': [
-        ],
+        'attachments': [],
+        'attachments_name': [],
       },
       {
         'type': 'smg',
+        'description': 'JS9은 중국 맵인 론도에서만 등장하는 기관단총으로, 매우 적은 반동과 수평반동이 거의 없어 초보자들이 다루기 쉽다. 하지만 론도에서만 사용 가능하며, 9mm 탄을 사용하여 파밍이 어렵고 탄 소모가 심하다. 중거리 전투에는 2/3배율과 보정기를 달아 활용할 수 있다. 근중거리까지 커버가 가능한 SMG이다.',
         'name': 'JS9',
         'ammunition': '9mm',
         'ammunition_image': 'asset/img/9탄.png',
@@ -383,7 +390,6 @@ class SmgScreen extends StatelessWidget {
           'asset/img/smg퀵드로우.png',
           'asset/img/smg대탄.png',
           'asset/img/smg대퀵.png',
-
         ],
         'attachments_name': [
           '레드 도트 사이트',
@@ -400,7 +406,6 @@ class SmgScreen extends StatelessWidget {
           '퀵드로우 탄창(권총,SMG)',
           '대용량 탄창(권총,SMG)',
           '대용량 퀵드로우 탄창(권총,SMG)',
-
         ],
       },
     ];

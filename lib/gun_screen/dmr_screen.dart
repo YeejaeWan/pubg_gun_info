@@ -16,6 +16,7 @@ class DmrScreen extends StatelessWidget {
     final List<Map<String, dynamic>> gunList = [
       {
         'type': 'dmr',
+        'description': '2017년 9월 14일 업데이트로 추가된 DMR으로, 5.56mm 탄약을 사용하여 탄속이 빠르고 반동이 낮으며, 장탄수도 20발로 많아 AR처럼 사격이 가능하다. 피해량은 7.62mm 탄약을 쓰는 DMR에 비해 낮지만, 빠른 탄속과 높은 장탄수로 인해 중장거리에서 효과적이다. 또한 탄속이 게임 내 2위로 매우 빠르고, 장탄수도 DMR 중 최고로 높아 원거리 교전에 적합하며, 반동도 낮아 조정이 쉽다. 그러나 대미지는 낮고 장전시간이 길어 피해량 타이도 작아지고 장전 중에 적을 놓칠 수 있다.',
         'name': 'Mini14',
         'ammunition': '5.56mm',
         'ammunition_image': 'asset/img/5탄.png',
@@ -78,6 +79,7 @@ class DmrScreen extends StatelessWidget {
       },
       {
         'type': 'DMR',
+        'description': '18차 패치노트에서 추가된 DMR인 QBU는 Mini-14 대신 등장하며, 5.56mm 탄을 사용한다. 사녹에서만 사용 가능하며, Mini-14와 대체적으로 유사한 성능을 보이지만 장탄수가 적고 반동이 크다. 특이하게도 양각대를 부착하여 엎드려서 사격하면 반동이 크게 줄어든다. 소음효과가 뛰어나지만 실제로는 그렇게 뚜렷하지 않으며, 사녹의 조건에서만 적합하다.',
         'name': 'QBU88',
         'ammunition': '5.56mm',
         'ammunition_image': 'asset/img/5탄.png',
@@ -140,6 +142,7 @@ class DmrScreen extends StatelessWidget {
       },
       {
         'type': 'dmr',
+        'description': 'Mk12은 5.56mm 탄을 사용하는 DMR 중 최초로 양각대와 손잡이를 지원하며, 탄속은 미니14보다 낮지만 피해량은 미니14와 QBU의 중간인 51을 가지고 있다. 손잡이를 장착하면 반동이 감소하며, 소음기를 장착하면 소음 효과가 뛰어나다. PC와 콘솔판에서는 16.1 패치로 성능이 향상되어 이용률이 증가하고, 20.1 패치로 라이트 그립이 단발 사격에 더욱 특화되었다. 그러나 탄속은 미니14와 QBU보다 느리고, 반동이 다소 심하다.',
         'name': 'MK12',
         'ammunition': '5.56mm',
         'ammunition_image': 'asset/img/5탄.png',
@@ -214,6 +217,7 @@ class DmrScreen extends StatelessWidget {
       },
       {
         'type': 'dmr',
+        'description': 'SKS는 얼리 엑세스 당시에 추가된 반자동 DMR 중 최초로 필드 드롭으로 얻을 수 있는 총기이다. 기본 장탄수는 10발이지만 대용량 탄창을 장착하여 20발까지 증가할 수 있어 지속 화력이 우수하다. 손잡이로는 수직 손잡이와 라이트 그립이 가장 어울리며, 상대적으로 높은 DPS와 빠른 광클로 중거리 전투에서 강력한 올라운더 무기로서 활용된다. 그러나 다른 DMR에 비해 탄속이 낮고 낙차가 있어 중장거리 전투에서는 약간의 불리함을 겪을 수 있다.',
         'name': 'SKS',
         'ammunition': '7.62mm',
         'ammunition_image': 'asset/img/7탄.png',
@@ -290,6 +294,7 @@ class DmrScreen extends StatelessWidget {
       },
       {
         'type': 'dmr',
+        'description': 'Mk14는 보급상자에서만 얻을 수 있는 DMR로, 높은 피해량과 빠른 탄속을 가졌으며 8배율 연사가 가능하다. 그러나 심한 반동과 부족한 장탄수가 단점으로 작용하며, 연사 시 재장전이 빈번하게 필요하다. 높은 피해량과 초당 피해량으로 중장거리 전투에서 우수한 성능을 보이지만, 반동이 강력하여 연사를 사용할 경우에는 근접 전투에 적합하지 않다. 전반적으로 근, 중, 원거리에서 모두 활용 가능한 만능적인 총기이지만, 연사로 사용 시 재장전이나 반동 관리에 주의해야 한다.',
         'name': 'MK14',
         'ammunition': '7.62mm',
         'ammunition_image': 'asset/img/7탄.png',
@@ -354,6 +359,7 @@ class DmrScreen extends StatelessWidget {
       },
       {
         'type': 'dmr',
+        'description': 'SLR은 SKS와 MK14 사이의 DMR으로, 높은 피해량과 빠른 탄속을 가지고 있으며 연발 사격 시에도 효과적이다. 그러나 반동이 강하고 드랍률이 낮아 초보자에게는 적합하지 않으며, 광클로 속사하기 어렵고 연발 간격이 길어 연사로 사용하기에도 어려움을 겪을 수 있다. SKS와 비교했을 때 대미지, 파츠 장착, 탄속 부분들에서 우위룰 가지기 때문에 SLR을 더 많이 사용한다.',
         'name': 'SLR',
         'ammunition': '7.62mm',
         'ammunition_image': 'asset/img/7탄.png',
@@ -418,6 +424,7 @@ class DmrScreen extends StatelessWidget {
       },
       {
         'type': 'dmr',
+        'description': '드라구노프는 소련 제 지정사수 소총으로 7탄을 사용하는 DMR이다. 높은 몸통 기본 피해량을 가졌지만 반동이 높고 연발 속도가 낮아 광클로 속사가 불가능하며, 헤드샷 명중 시 높은 피해량을 가지고 있다. 근-중거리 교전에서 유용하며,100M안에서  2레벨 헬멧 착용 적을 한 발에 눕힐 수 있다. 하지만 중거리 이상에서는 성능이 제한되며, SR과 DMR 사이의 총기로 특히 근거리에서 활약한다. 후반부 장기장 근거리 교전에서 피킹전에서 2레벨 헬멧 한방이라는 우위를 가질 수 있다.',
         'name': '드라구노프',
         'ammunition': '7.62mm',
         'ammunition_image': 'asset/img/7탄.png',
@@ -482,6 +489,7 @@ class DmrScreen extends StatelessWidget {
       },
       {
         'type': 'dmr',
+        'description': 'VSS는 PSO-1 4배율 조준경과 소음기가 기본 장착된 러시아 제 저격 소총으로, 낮은 확률로 드랍된다. 9mm 탄을 사용하며 소음과 반동이 적지만 피해량은 낮으며, 총기의 독특한 특성으로 인해 전투에서 특별한 운용법이 요구된다. 은밀한 암살과 근거리 전투에서 강점을 보이지만, 대량의 탄창을 갖지 않고 느린 탄속으로 중장거리에서는 적응이 필요하며, 다대다 전에서는 상대적으로 효과가 떨어진다. 요약하면 VSS는 은밀한 플레이와 근거리 전투에서 빛을 발하는 독특한 무기이다.',
         'name': 'VSS',
         'ammunition': '9mm',
         'ammunition_image': 'asset/img/9탄.png',
